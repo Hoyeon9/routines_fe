@@ -23,7 +23,7 @@
     order: 0;
     flex-grow: 0;
 }
-.routinePage .routine, .routinePage .routine-edit-modal{
+.routinePage .routine, .routinePage .routine-edit-modal, .routinePage .add-modal{
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -35,7 +35,6 @@
     min-width: 500px;
     max-width: 800px;
 
-    background: #FFFFFF;
     border: 1px solid #D9D9D9;
     border-radius: 8px;
 }
@@ -81,18 +80,19 @@
 .routinePage .routine .delete:hover{
     background: #ccac4b;
 }
-.routinePage .routine-edit-modal textarea, .routinePage .routine-edit-modal input{
+.routine-edit-modal textarea, .routine-edit-modal input, .add-modal textarea, .add-modal input{
     display: inline-block;
     width: 300px;
 }
-.routinePage .routine-edit-modal label{
+.routine-edit-modal label, .add-modal label{
     display: inline-block;
     width: 40px;
+    margin: 7px 0;
 }
-.routinePage .routine-edit-modal .btns{
+.routine-edit-modal .btns, .add-modal .btns{
     margin-left: 40px;
 }
-.routinePage .routine-edit-modal button{
+.routine-edit-modal button, .add-modal button{
     cursor: pointer;
     margin-right: 5px;
     border: 1px solid #3d3d3d80;
@@ -100,14 +100,34 @@
     width: 50px;
     height: 22px;
 }
-.routinePage .routine-edit-modal .confirm{
-    background-color:#CFF7D3
+.routine-edit-modal .confirm, .add-modal .submit{
+    background-color:#3ef551
 }
-.routinePage .routine-edit-modal .confirm:hover{
-    background-color:#badfbd
+.routine-edit-modal .confirm:hover, .add-modal .submit:hover{
+    background-color:#34ca41
 }
-.routinePage .routine-edit-modal .cancel:hover{
+.routine-edit-modal .cancel:hover, .add-modal .cancel:hover{
     background-color:#d6d6d6
+}
+.add-modal{
+    background-color: #e9ffeb;
+}
+.add-modal h3{
+    margin: 10px 0;
+}
+.routine-list-container .plus{
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+}
+.routine-list-container .plus-container{
+    display: flex;
+    justify-content: center;
+}
+.routine-list-container .plus:hover{
+    background-color: #4dcc57;
 }
 .routine .confirm-modal{
     padding: 10px;

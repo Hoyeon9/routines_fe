@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Routine from "./Routine";
+import plus from "../../img/plus.svg"
 
 export default function RoutineList(){
     const serverAddress = process.env.REACT_APP_SERVER_ADDRESS;
@@ -34,7 +35,7 @@ export default function RoutineList(){
                 {routines.map((routine, idx) => <Routine key={idx} name={routine.routineName} desc={routine.routineDesc} id={routine.routineId} setReload={setReload}/>)}
                 {showAddModal ?
                  <AddModal setShowAddModal={setShowAddModal} userId={userId} setReload={setReload}/>
-                 :<button onClick={() => {setShowAddModal(true)}}>추가하기</button>}
+                 :<div className="plus-container"><button className="plus" onClick={() => {setShowAddModal(true)}}><img src={plus} /></button></div>}
             </div>
              : <div className="error-page">404</div>}
         </div>
@@ -69,16 +70,19 @@ function AddModal({setShowAddModal, userId, setReload}){
     return(
         <div className="add-modal">
             <form>
+                <h3>추가하기</h3>
                 <div>
                     <label>이름</label>
                     <input type="text" id="name" name="name" placeholder="루틴의 이름 입력하기" value={name} onChange={e => setName(e.target.value)} required />
                 </div>
                 <div>
                     <label>설명</label>
-                    <input type="text" id="desc" name="desc" placeholder="루틴의 설명 입력하기" value={desc} onChange={e => setDesc(e.target.value)} />
+                    <textarea type="text" id="desc" name="desc" placeholder="루틴의 설명 입력하기" value={desc} onChange={e => setDesc(e.target.value)} />
                 </div>
-                <button type="submit" onClick={handleSave}>확인</button>
-                <button onClick={e => {e.preventDefault(); setShowAddModal(false);}}>취소</button>
+                <div className="btns">
+                    <button className="submit" type="submit" onClick={handleSave}>추가</button>
+                    <button className="cancel" onClick={e => {e.preventDefault(); setShowAddModal(false);}}>취소</button>
+                </div>
             </form>
         </div>
     )
