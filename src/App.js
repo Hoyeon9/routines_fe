@@ -14,7 +14,7 @@ function App() {
       <div className='navbar'>
         <button className='home-btn' onClick={() => navigate('/')}>Home</button>
         {userId ?
-          <button className='logout-btn' onClick={() => {sessionStorage.removeItem('userId'); setUserId(null);}}>로그아웃</button>
+          <button className='logout-btn' onClick={() => {sessionStorage.removeItem('userId'); setUserId(null); navigate('/')}}>로그아웃</button>
           : <button className='login-btn' onClick={() => {navigate("/login")}}>로그인</button>}
       </div>
     </header>
