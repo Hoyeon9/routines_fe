@@ -47,12 +47,16 @@ function AddModal({setShowAddModal, userId, setReload}){
     const handleSave = e => {
         e.preventDefault();
         const serverAddress = process.env.REACT_APP_SERVER_ADDRESS;
+        if(name.trim() === ''){
+            setName('');
+            return
+        }
         fetch(`${serverAddress}/api/routine`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId, routineName: name, routineDesc: desc})
+            body: JSON.stringify({userId, routineName: name.trim(), routineDesc: desc.trim()})
         })
         .then(res => {
             if(!res.ok){
@@ -71,7 +75,7 @@ function AddModal({setShowAddModal, userId, setReload}){
                 </div>
                 <div>
                     <label>설명</label>
-                    <input type="text" id="desc" name="desc" placeholder="루틴의 설명 입력하기" value={desc} onChange={e => setDesc(e.target.value)} required />
+                    <input type="text" id="desc" name="desc" placeholder="루틴의 설명 입력하기" value={desc} onChange={e => setDesc(e.target.value)} />
                 </div>
                 <button type="submit" onClick={handleSave}>확인</button>
                 <button onClick={e => {e.preventDefault(); setShowAddModal(false);}}>취소</button>
