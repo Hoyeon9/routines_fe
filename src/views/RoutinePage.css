@@ -1,0 +1,136 @@
+.routinePage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 67px 24px 160px;
+    gap: 32px;
+
+    background: #FFFFFF;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.routinePage .routine-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.routinePage .routine, .routinePage .routine-edit-modal{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0;
+    justify-content: space-between;
+    
+    min-width: 500px;
+    max-width: 800px;
+
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+}
+.routinePage .routine .routine-content div{
+    width: 200px;
+    word-wrap: break-word; /* Ensures words break */
+    overflow-wrap: break-word;
+    margin: 10px;
+}
+.routinePage .routine .routine-content h3{
+    margin: 10px;
+}
+.routinePage .routine .btns{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.routinePage .routine button{
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+
+    width: 68px;
+    height: 20px;
+
+    border-radius: 8px;
+    border: 1px solid #3d3d3d80;
+}
+.routinePage .routine .edit{
+    background: #CFF7D3;
+}
+.routinePage .routine .edit:hover{
+    background: #badfbd;
+}
+.routinePage .routine .delete{
+    background: #FFD65E;
+}
+.routinePage .routine .delete:hover{
+    background: #ccac4b;
+}
+.routinePage .routine-edit-modal textarea, .routinePage .routine-edit-modal input{
+    display: inline-block;
+    width: 300px;
+}
+.routinePage .routine-edit-modal label{
+    display: inline-block;
+    width: 40px;
+}
+.routinePage .routine-edit-modal .btns{
+    margin-left: 40px;
+}
+.routinePage .routine-edit-modal button{
+    cursor: pointer;
+    margin-right: 5px;
+    border: 1px solid #3d3d3d80;
+    border-radius: 4px;
+    width: 50px;
+    height: 22px;
+}
+.routinePage .routine-edit-modal .confirm{
+    background-color:#CFF7D3
+}
+.routinePage .routine-edit-modal .confirm:hover{
+    background-color:#badfbd
+}
+.routinePage .routine-edit-modal .cancel:hover{
+    background-color:#d6d6d6
+}
+.routine .confirm-modal{
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #3d3d3d80;
+    border-radius: 5px;
+    text-align: center;
+}
+.routine .confirm-modal .confirm-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.routine .confirm-modal .confirm{
+    color: rgb(235, 235, 235);
+    background-color: rgb(58, 58, 58);
+}
+.routine .confirm-modal .confirm:hover{
+    background-color: rgb(19, 19, 19);
+}
+.routine .confirm-modal .cancel{
+    background-color: #f0f0f0;
+}
+.routine .confirm-modal .cancel:hover{
+    background-color: #dadada;
+}

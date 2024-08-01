@@ -64,8 +64,10 @@ export default function Register(){
                     <input type="email" id="email" name="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
 
-                <button type="submit">Register</button>
-                <button onClick={(e) => {e.preventDefault(); navigate('/login')}}>Login</button>
+                <div className="btns">
+                    <button className="submit-btn" type="submit">회원가입</button>
+                    <button className="alter-btn" onClick={(e) => {e.preventDefault(); navigate('/login')}}>로그인 화면으로</button>
+                </div>
             </form>
         </div>
     )
