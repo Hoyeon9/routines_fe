@@ -6,17 +6,30 @@ export default function Register(){
     const navigate = useNavigate();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
 
     const handleRegister = e => {
         e.preventDefault();
+        if(password !== passwordConfirm) return;
+        if(id.trim() === '' || password.trim() === '' || username.trim() === '') {
+            if(id.trim() === '') setId('');
+            if(password.trim() === '') setPassword('');
+            if(username.trim() === '') setUsername('');
+            return;
+        }
         fetch(`${serverAddress}/api/user/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'userId': id, password, username, email})
+            body: JSON.stringify({
+                userId: id.trim(),
+                password: password.trim(),
+                username: username.trim(),
+                email: email.trim()
+            })
         })
         .then(res => {
             if(!res.ok){
@@ -37,6 +50,10 @@ export default function Register(){
                 <div>
                     <label>Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" value={password} onChange={e => setPassword(e.target.value)} required />
+                </div>
+                <div>
+                    <label>Password Confirm</label>
+                    <input type="password" id="passConfirm" name="passwConfirm" placeholder="Enter your password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} required />
                 </div>
                 <div>
                     <label>Username</label>
