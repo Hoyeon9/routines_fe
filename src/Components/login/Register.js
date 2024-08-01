@@ -28,7 +28,7 @@ export default function Register(){
                 userId: id.trim(),
                 password: password.trim(),
                 username: username.trim(),
-                email: email.trim()
+                email: email.trim() ? email.trim() : null
             })
         })
         .then(res => {
